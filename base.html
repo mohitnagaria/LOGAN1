@@ -1,0 +1,144 @@
+{% load staticfiles %}
+
+<!--DOCTYPE html -->
+
+<html lang="en">
+<head>
+
+
+  {% block content %}  
+
+    <title>{% block head_title %} Cafe- Trek List {% endblock head_title %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='{% static "/static/Post_list.css" %}'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; 
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+  
+    <style> {% block style %} {% endblock style %} </style>
+
+</head>
+
+
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+    <header>
+      <ul class="w3-navbar navbar w3-navitem w3-center">
+        <li style="width:20%"><a href="#">HOME</a></li>
+        <li style="width:60%">
+          <form method='GET' action='' style="margin-bottom: 0px;">
+          <input type='text' class="searchbar-masthead" name='q' placeholder='Search Your Place...' >
+        
+          <button type='submit' value='Search' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#ed1b2e; color: #EEE; "> <B> Search </B>
+          </button>
+          </form>
+        </li>
+        <li style="width:10%" class="w3-padding-16"></li>
+      </ul>
+    </header>
+
+    <!--<div class="w3-container top-stories ">
+        <h2> Top Stories </h2>
+          <br>
+          
+        <div class="w3-row">      
+            <div class="w3-col l4">
+                <div class="w3-card-12 w3-hover-shadow card">
+                <img src="topstories-pic" alt="">
+                </div>
+            </div>
+              
+              
+            <div class="w3-col l4">
+                <div class="w3-card-12 w3-hover-shadow card">
+                <img src="Paris.jpg" class="topstories-pic" alt="">
+                </div>
+            </div>
+            
+
+            <div class="w3-col l4">
+                <div class="w3-card-2 w3-hover-shadow card">
+                <img src="mountains.jpg" class="topstories-pic" alt="">
+                </div>
+            </div>
+          
+        </div>
+      </div> -->
+
+
+    <div class="container">        
+          <br>
+
+{% for obj in  object_list %}
+
+		    <div class="w3-row">
+          <div class="w3-col l4 pad">
+            	{% if obj.Post_List_img %}
+                  <img src='{{ obj.Post_List_img.url }}' class="post-pic" alt="">
+            	{% endif %}
+          </div>
+          <div class="w3-col l8 pad">
+                  <a href='{{ obj.get_absolute_url }}' style="color: #484848;"> <h3> {{ obj.title }} </h3></a> 
+                   
+
+                  <p style="color: #767676">
+					           {{ obj.about_the_trek|linebreaks|truncatechars:400 }}                    
+                  </p>
+                  <span class="mdl-chip"><span class="mdl-chip__text"><b>{{obj.highest_altitude}}</span></b></span></span>
+                  <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">Himalayan Trek</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">{{obj.difficulty}}</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">{{obj.trek_length}}</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">{{obj.endurance_level}}</span></span>
+                  <br>
+                </div>
+              </div>
+              <hr>  
+{% endfor %}
+
+          </div>
+			<div class="pagination">
+    			<span class="step-links">
+        			{% if object_list.has_previous %}
+            			<a href="?page={{ object_list.previous_page_number }}">previous</a>
+        			{% endif %}
+
+        		<span class="current">
+            		<!-- Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}. -->
+        		</span>
+
+        			{% if object_list.has_next %}
+            			<a href="?page={{ object_list.next_page_number }}">next</a>
+        			{% endif %}
+    			</span>
+			</div>
+
+
+{% endblock content %}
+    	</body>
+	</html>

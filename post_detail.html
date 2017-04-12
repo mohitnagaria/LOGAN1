@@ -1,0 +1,488 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+
+
+<link rel='stylesheet' href='{% static "/static/style.css" %}' />
+
+{% block content %}
+   
+<title> {% block head_title %} Cafe- Trek List {% endblock head_title %} </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+<style> {% block style %} {% endblock style %} </style>
+
+</head>
+
+<body>
+
+
+<div id="fb-root"></div>
+
+    <header class="navbar">
+    <ul class="w3-navbar navbar w3-navitem w3-center">
+
+      <li style="width:20%"><a href="/home">HOME</a></li>
+
+  </ul>
+  </header>
+    
+
+    
+    <div class="w3-container" style=" margin-top:10px; ">
+        <div class="w3-row">
+            <div class="w3-col l7">
+                <div class="w3-card card1" style="padding: 5px 5px;"> 
+                  <img src='{{ instance.Cover_Pic.url }}'  alt="">
+                </div>
+            </div>
+
+            <div class="w3-col l5">
+                <div class="w3-container" style="padding: 0 5px;"> 
+
+                <div class="w3-row " style="padding: 5px 5px;">
+                <div class="w3-col l12" >
+                  <iframe style="max-height: 350px; width: 100%;" width="315" height="315" src="https://www.youtube-nocookie.com/embed/7DHhfZ0xMQM" frameborder="0" allowfullscreen></iframe>
+                  <a  href="https://www.youtube.com/channel/UCtDVbMaP0c7A2VUt9wgTMiQ"> <p>Credits </p></a>
+               
+                </div>
+            </div>
+                  <div class="w3-row">
+                    <div class="w3-col l12 tab-text-format" style="margin-bottom: 0px;">
+                      <h2> <b>{{ instance.title}}</b> </h2>
+
+
+                    </div>
+                  </div>
+                    <div class="w3-row">
+                        <div class="w3-col l10" style="padding-left: 10px;">
+                          <span class="mdl-chip"><span class="mdl-chip__text">{{instance.highest_altitude}}</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">{{instance.trek_duration}}</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">{{instance.difficulty}}</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">{{instance.trek_length}}</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">{{instance.endurance_level}}</span></span>
+                        </div>
+                      </div>
+                  </div>
+<br>
+                
+            </div>
+        </div>
+<br>
+       
+              </div>
+
+          <div id="Info" class="w3-container ">
+            <div class="w3-row">
+              <div class="w3-col l12">
+
+
+                <div class="w3-container">
+                  <div class="w3-row">
+                  <h3 class="text-muted" style="padding-left: 15px;"> GENERAL INFORMATION </h3>
+
+                    <div class="w3-col l7">
+                    <hr>
+
+                      <div class="w3-container">                             
+                        <div class="w3-row tab-text-format">
+                          <div class="w3-col l2 info-text">
+                              <p class="text-muted"><b> About Trek</b></p>
+                          </div>
+                          <div class="w3-col l10 info-text">
+                              <p> {{ instance.about_the_trek|linebreaks }} </p>
+                         </div>
+                        </div>
+            
+                        <div class="w3-row tab-text-format">
+                          <div class="w3-col l2 info-text">
+                            <p class="text-muted"><b>Region</b></p>
+                          </div>
+                          <div class="w3-col l10 info-text">
+                         <p>{{ instance.region }}</p>
+                         </div>
+                        </div>
+
+                         <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Wildlife Reserve</b></p>
+                             </div>
+                                      <div class="w3-col l10 info-text">
+                             <p>{{ instance.wildlife_reserve|linebreaks }}</p>
+                             </div>
+                          </div>
+            
+                         <div class="w3-row tab-text-format">
+                            <div class="w3-col l2 info-text">
+                                <p class="text-muted"><b>Best Time</b></p>
+                           </div>
+                                  <div class="w3-col l10 info-text">
+                                      <p>{{ instance.best_time|linebreaks  }}</p>
+                                   </div>
+                        </div>
+            
+                         <div class="w3-row tab-text-format">
+                            <div class="w3-col l2 info-text">
+                                <p class="text-muted"><b>What To Explore</b></p>
+                           </div>
+                                    <div class="w3-col l10 info-text">
+                           <p>{{ instance.Exploration_Spots|linebreaks }}</p>
+                           </div>
+                        </div>
+                        </div>
+                  </div>
+
+                  <div class="w3-col l5">
+                    <div class="w3-container">
+                      <div class="w3-row">
+                        <div class="w3-col l12">
+                        <img src='{{ instance.Post_List_img.url }}' class="post-pic" style="margin-top: 25px; height=100%;" alt="">
+
+                        </div>
+                      </div>
+                     
+                      
+                      <br>
+                      <div class="w3-row">
+                        <div class="w3-col l12">
+                        <h3>Let there be Light:</h3>
+                     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"> <span class="fa fa-facebook"></span></a>
+                     <a href="https://twitter.com/home?status={{ share_string }}http:{{ request.build_absolute_uri }}" class="fa fa-twitter"> </a>
+                      <a href="#" class="fa fa-google"></a>
+                    <a href="{{ request.build_absolute_uri }}" data-pin-do="buttonBookmark" data-pin-custom="true"><span class="fa fa-pinterest"></span></a>
+
+                      <a href="#" class="fa fa-skype"></a>
+                      <a href="#" class="fa fa-tumblr"></a>
+                      <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}" class="fa fa-reddit"></a>
+
+                      </div>
+                      </div>
+                      </div>
+                      </div>
+                  </div>
+                  </div>
+                         
+
+            <div class="w3-container">
+                  <div class="w3-row">
+                    <div class="w3-col l7">
+                      <div class="w3-container">
+                        <div class="w3-row">
+                          <div class="w3-col l12">
+                       <h3 class="text-muted"> TRAIL DETAILS </h3>
+                                          <hr>
+                                          </div>
+                                          </div>
+
+                        <div class="w3-row tab-text-format">
+                          <div class="w3-col l2 info-text">
+                              <p class="text-muted"><b>Route</b></p>
+                             </div>
+                            <div class="w3-col l10 info-text">
+                              <p>{{ instance.trek_route|linebreaks }}</p>
+                                </div>
+            
+                          </div>
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Trail Highlights</b></p>
+                             </div>
+                            
+                                  <div class="w3-col l10 info-text">
+                                      <p>{{ instance.trail_highlights|linebreaks }}</p>
+                             </div>
+                          </div>
+
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Equipments Required</b></p>
+                             </div>
+                                  <div class="w3-col l10 info-text">
+                                      <p></p>
+                             </div>
+                          </div>
+
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Food  Availability</b></p>
+                             </div>
+                                  <div class="w3-col l10 info-text">
+                                      <p>{{ instance.food_availability|linebreaks }}</p>
+                             </div>
+
+                          </div>
+            
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Water  Resources</b></p>
+                             </div>
+                                  <div class="w3-col l10 info-text">
+                                      <p>{{ instance.water_availability|linebreaks }}</p>
+                             </div>
+                          </div>
+                          
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Shade/ Accomodations</b></p>
+                             </div>
+                                  <div class="w3-col l10 info-text">
+                                      <p>{{ instance.accomodation|linebreaks }}</p>
+                             </div>
+                          </div>
+                    
+                  <div class="w3-row">
+                    <div class="w3-col l12">
+                    <h3 class="text-muted"> SOS DETAILS</h3>
+                    <hr>
+                      </div>
+                      </div>
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col l2 info-text">
+                                      <p class="text-muted"><b>Police Station</b></p>
+                                 </div>
+                                      <div class="w3-col l10 info-text">
+                                          <p>{{ instance.police_station|linebreaks }}</p>
+                                 </div>
+                              </div>
+                              
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col l2 info-text">
+                                      <p class="text-muted"><b>Bus Station</b></p>
+                                 </div>
+                                      <div class="w3-col l10 info-text">
+                                        <p>{{ instance.bus_stand|linebreaks }}</p>
+                                      </div>
+                              </div>
+                              
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col l2 info-text">
+                                      <p class="text-muted"><b>Railway Station</b></p>
+                                 </div>
+                                      <div class="w3-col l10 info-text">
+                                          <p>{{ instance.railway_station|linebreaks }}</p>
+                                 </div>
+                              </div>
+
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col l2 info-text">
+                                      <p class="text-muted"><b>Airport</b></p>
+                                 </div>
+                                      <div class="w3-col l10 info-text">
+                                          <p>{{ instance.airport|linebreaks }}</p>
+                                 </div>
+                              </div>
+                              </div>
+         
+                  </div>
+                  <div class="w3-col l5">
+                    <div class="w3-container">
+                      <div class="w3-row">
+                        <div class="w3-col l12">
+                    <div id="map" style="width: 100%; min-height: 380px; margin-top: 75px;"></div>  
+                      </div>
+                      </div>
+                        <div class="w3-row">
+                      <div class="w3-col l12">
+                      <h3 class="text-muted"> WAY TO BASE CAMP</h3>
+                      </div>
+                  </div>
+                <div class="w3-row tab-text-format">
+                    <div class="w3-col l4 ">
+                      <p class="text-muted"><b>To {{ instance.base_village }}</b></p>
+                    </div>
+                    <div class="w3-col l8 ">
+                      <p>{{ instance.route_to_base_camp|linebreaks }}</p>
+                    </div>
+                    </div>
+
+                <div class="w3-row tab-text-format">
+                    <div class="w3-col l4 ">
+                      <p class="text-muted"><b>Route Details</b></p>
+                    </div>
+                    <div class="w3-col l8 ">
+                      <p>{{ instance.route_details|linebreaks }}</p>
+                    </div>
+                </div>
+                    
+                      </div>
+                      </div>
+
+
+                  </div>
+                  </div>
+
+                </div>
+                </div>
+                    
+            </div>
+          
+        </div>
+    </div>
+
+<div id="Photos" class="w3-container tabs">
+ <div class="w3-container">
+    <div class="w3-row" >
+             <div class="w3-col l3">
+           <div class="w3-card-12 w3-hover-shadow card">
+                  <img src="roop.jpg" class="vendor-logos" alt="">
+               <div class="w3-container">
+                    <img src="roop.jpg" class="vendor-logos" alt="">
+               </div>
+                
+               <div class="w3-container">
+               
+               <button type="button" class="mdl-chip">
+    <span class="mdl-chip__text">Button Chip</span>
+</button>
+                   <button type="button" class="mdl-chip">
+    <span class="mdl-chip__text">Button Chip</span>
+</button>
+               </div>
+            </div>
+          </div>
+          
+          <div class="w3-col l3">
+            <div class="w3-card-12 w3-hover-shadow card">
+                <img src="" alt="">
+                    <div class="w3-container w3-center">
+
+                    </div>
+                </div>
+            </div>
+           
+             <div class="w3-col l3">
+            <div class="w3-card-12 w3-hover-shadow card">
+                <img src="" alt="">
+                    <div class="w3-container w3-center">
+                 
+                    </div>
+                </div>
+            </div>
+             <div class="w3-col l3">
+            <div class="w3-card-12 w3-hover-shadow card">
+                <img src="" alt="">
+                    <div class="w3-container w3-center">
+                 
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+
+
+
+    
+    </div>
+</div>
+    </div>
+</div>
+    <div class="w3-container related-search">
+       <div class="w3-row">
+        <div class="w3-col l7 fb-comments" data-href="{{ request.build_absolute_url }}" data-numposts="5"></div>     
+          <div class="w3-col l5">
+            <h3>Let there be Light:</h3>
+              <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"> <span class="fa fa-facebook"></span></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="https://plus.google.com/share?url=http://codingforentrepreneurs.com" class="fa fa-google"></a>
+              <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><span class="fa fa-pinterest"></span></a>
+              <a href="#" class="fa fa-skype"></a>
+              <a href="#" class="fa fa-tumblr"></a>
+              <a href="http://www.reddit.com/submit?url=http://swiftforentrepreneurs.com/&title=Unlock%20to%20Learn%20Swift%20for%20Free!%20By%20Swift%20for%20Entrepreneurs.%20Made%20for%20Non%20Techincals." class="fa fa-reddit"></a>
+          </div>
+        </div>
+      </div>
+
+
+<footer class="w3-container text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+</footer>
+
+<script>
+  openTab("Info")
+function openTab(tabName) {
+    var i;
+    var x = document.getElementsByClassName("tabs");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+}
+    </script>
+    <script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+    <script>
+        function myMap() {
+            var SummitPoint = new google.maps.LatLng( {{ instance.Summit_Lat}} , {{ instance.Summit_Lng }});
+            var BaseVillage = new google.maps.LatLng( {{ instance.Base_Village_Lat }} , {{ instance.Base_Village_Lng }});
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {center: SummitPoint, zoom: 11};
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var MarkerSummit = new google.maps.Marker({position:SummitPoint});
+            MarkerSummit.setMap(map);
+            var MarkerBase = new google.maps.Marker({position:BaseVillage});
+            MarkerBase.setMap(map);
+            var infoBase = new google.maps.InfoWindow({content: "Base Village: {{ instance.base_village }}"});
+            infoBase.open(map,MarkerBase);
+            var infoSummit = new google.maps.InfoWindow({content: "{{ instance.title }}" });
+            infoSummit.open(map,MarkerSummit);
+        }
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+        
+
+{% endblock content %}

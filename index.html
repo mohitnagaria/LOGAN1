@@ -1,0 +1,676 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      
+   
+    </script>
+  <style>
+ body    {
+                font-family: "Roboto",sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 20px;
+                background: :#fff;
+
+  }
+    .crumbs {
+            font-size: 12px;
+            margin: 2px;
+            background: #fafafa;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #0000;
+            opacity: 38%;
+  }  
+    .tabpanel{
+            background-color:#90A4AE;
+            color: #ffffff;
+            font-family: "Roboto","Arial" sans-serif;
+            margin-bottom: 40px;
+  }
+     
+      
+        h1      {
+            font-size: 65px;
+            color: #484848;
+            font-weight: 300;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h2      {
+            font-size: 56sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h3      {
+            font-size: 45sp;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+  }
+      
+        h4      {
+            font-size: 34sp;
+            line-height: 1.375em;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h5      {
+            font-size: 24sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h6      {
+            font-size: 20sp;
+            color: #484848;
+            font-weight: 500;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        p      {
+            font-size: 13sp;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+  }
+      
+        hr     {
+               margin-top: 15px;
+    margin-bottom: 15px;
+    border: 0;
+    border-top: 1px solid #dce0e0
+            
+  }
+      
+        .front-grid{
+            padding: 0px 0px;
+            width: 100%;
+            margin-top: -120px;
+            background-image: url(trishul.jpg);
+            min-height: 100%;
+            background-position: center;
+            background-size: cover;
+            font-family: "Roboto","Arial", sans-serif;
+            text-align: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+  }
+      
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 100px 40px;
+            margin-top: 5px;
+          
+  }
+        .paralaxgrid{
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("tikona.jpg");
+            min-height: 450px;
+  }
+    
+        .panel {
+      border: 1px solid #416175;
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+  }
+        .navbar {
+          margin-bottom: auto;
+    background-color: #416175;
+    z-index: 9999;
+    border: 0;
+    font-size: 14px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: "Roboto","Arial", sans-serif;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+  }
+  .navbar-default {
+    background-color: #416175;
+    border-color: #e7e7e7;
+}
+   
+      .card1{
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0),0 1px 0 rgba(0,0,0,0)!important;
+    font-size: 16px;
+    font-weight: 400;
+    min-height: 280px;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    border-radius: 2px;
+    border: .5px;
+    box-sizing: border-box;
+    margin-left: 2px;
+    margin-right: 2px;
+    max-height: 280px;
+    margin: 2px;
+    background-image: -webkit-linear-gradient(top,rgba(0,0,0,.3) 0,rgba(0,0,0,0) 100%);
+  }
+      
+      .card2{
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0),0 1px 0 rgba(0,0,0,0)!important;
+    font-size: 16px;
+    font-weight: 400;
+    min-height: 300px;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 2px;
+    border: 10px;
+    box-sizing: border-box;
+    margin-left: 2px;
+    margin-right: 2px;
+    max-height: 50px;
+    margin: 2px;
+    background: -webkit-linear-gradient(top,rgba(0,0,0,.3) 0,rgba(0,0,0,0) 100%);
+   
+  }
+      .image{
+          width: 100%; 
+          height:100%; 
+          margin: auto;
+         
+          
+      }
+      
+      .card{
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0),0 1px 0 rgba(0,0,0,0)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 240px;
+            max-width: 350;
+            overflow: hidden;
+            z-index: 1;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 2px;
+            border: .5px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 50px;
+            margin: 2px;
+   
+  }
+        .footer-image{
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0),0 1px 0 rgba(0,0,0,0)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 240px;
+            width: 100%;
+            overflow: hidden;
+            z-index: 1;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 2px;
+            border: .5px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 240px;
+            margin: 2px;
+   
+  }
+      
+      .event-grid{
+            padding: 40px 100px;
+            margin-top: 10px;
+            background-color: transparent;
+ }
+      .venue-grid{
+            padding: 20px 20px;
+            margin-top: 20px;
+            margin-left: 0px;
+            margin-right: 0px;
+            background-color: #FAFAFA;
+            align-items: center;
+ }
+      .overlay{
+            background: -webkit-linear-gradient(bottom,rgb(0,0,0) ,rgb(255,255,255));
+            z-index: 1px;
+ }
+      .scrim{
+            background-image: -webkit-linear-gradient(bottom,rgba(0,0,0,.1) 0,rgba(0,0,0,0) 100%);
+            float: left;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            bottom: 0px;
+            z-index: 1000;
+            padding: 5px;
+            color: #FFFFFF;
+            font-weight: bold;
+            text-align: left;
+}
+
+        .top-stories{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding-top: 20px;
+            padding-bottom: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+            margin-top: 150px;    
+  }
+          .footer{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            padding-left: 100px;
+            padding-right: 100px;
+            margin-top: 10px;     
+  }
+
+              .post-pic{
+            max-width: 100%;
+            height: 100%;
+            background-size: 100% 100%;
+            
+  }
+      
+          .image-link{
+            padding: 0px 5px;
+  }
+
+          .front-block{
+            padding-top: 48px !important;
+            margin-left: 50px;
+            margin-right: 50px;
+
+          }
+
+  </style>
+    
+</head>
+<body>
+
+<nav class="w3-navbar navbar-default">
+  <div class="w3-container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#myPage">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about" class="w3-text-white">TREKS</a></li>
+        <li><a href="#services" class="w3-text-white">TREKKING GROUPS</a></li>
+        <li><a href="#portfolio" class="w3-text-white">ABOUT US</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+ 
+
+    <div class="w3-container ">
+      <div class="w3-row front-block">
+        <div class="w3-col l12 w3-center w3-text-white">
+            <h2><span style="color: #ed1b2e; "> <b>The Hitchhiker's Cafe</b><br><br></span> A community for travellers to know places and explore experiences. </h2>
+                <h3 ></h3>
+    <br>
+              <form method="get" action="/home/list">
+                <button type="submit" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised" style="background-color: #ed1b2e; color: white;"> <b> Explore All </b></button>
+              </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- <div class="w3-container event-grid">
+        <div class="w3-row">
+            <div class="w3-column l12 text-center"s>
+                <h2> <a href='/home/1/'><b>Top Destinations</b></a></h2>
+            </div>
+        </div>
+        
+        <div class="w3-row">
+                 <div class="w3-col l6" style="padding: 2px 2px;">
+            <div class="w3-card-12 w3-hover-shadow card1 overlay">
+                <img href='/home/1/' src="/media/DSC06222_AXvL9tI.jpg" style="width: 100%; height:100%; position:relative;" alt="">
+                        
+                    
+                </div>
+            </div>
+            <div class="w3-col l6">
+               <div class="w3-container" style="padding: 0px 0px; border: 0px; margin: 0px;">
+                   <div class="w3-row">
+                       <div class="w3-col l6" style="padding: 2px 2px;">
+                    <div class="w3-card w3-hover-shadow card1">
+                        <div class="w3-display-container">
+                           <img src="torna.jpg"  alt="" class="image">
+                            <div class="scrim">
+                            <div class="w3-display-bottomleft w3-container">
+                                <h3>Torna</h3>
+                                </div>
+                            </div>
+                        </div>
+                           </div>                       
+            </div>
+                        <div class="w3-col l6" style="padding: 2px 2px;">
+                    <div class="w3-card w3-hover-shadow card1"> 
+                        <div class="scrim"></div>
+                           <img src='{{ obj.image.url }}' style="width: 100%; height:100%;" alt="">
+                            <div class="scrim ">
+                            <div class="w3-display-bottomleft w3-container">
+                                <h3> <a href='{{ obj.get_absolute_url }}'>{{ instance.title }}</a> </h3>
+                                </div>
+                            </div>
+                           </div>          
+                   </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="w3-row">
+                 <div class="w3-col l3" style="padding: 2px 2px;">
+            <div class="w3-card-12 w3-hover-shadow card1">
+                <img src="tikona.jpg" style="width: 100%; height:100%;" alt="">
+                  <div class="scrim">
+                            <div class="w3-display-bottomleft w3-container">
+                                <h3> <a href='{{ instance.get_absolute_url }}'>{{ instance.id }}</a> </h3>
+                                </div>
+                            </div> 
+                </div>
+            </div>
+            <div class="w3-col l6" style="padding: 2px 2px;">
+             <div class="w3-card-12 w3-hover-shadow card1">
+                 <div class="scrim"></div>
+                <img src="varun.jpg" style="width: 100%; height:100%;" alt="">
+                 
+                </div>
+</div>
+           
+            <div class="w3-col l3" style="padding: 2px 2px;">
+            <div class="w3-card-12 w3-hover-shadow card1">
+                <div class="scrim"></div>
+             <img src="matheran.jpg" style="width: 100%; height:100%; background: -webkit-linear-gradient(bottom,rgba(0,0,0,.3) 0,rgba(0,0,0,0) 100%);" alt="">
+                   
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    </div> -->
+
+
+            <div class="w3-container top-stories">
+        <h2> Best This Season </h2>
+          <br>
+          
+                <div class="w3-row">      
+                  <div class="w3-col l4">
+                    <div class="w3-row">
+                      <div class="w3-col l12">
+                    <div class="w3-card-12 w3-hover-shadow card">
+                      <img src="/media/night.jpg" alt="" class="post-pic">
+                      </div>
+                    <div class="w3-row">
+                    <div clas="w3-col l12">
+                      <p> adass </p>
+                      </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+              
+              
+              <div class="w3-col l4">
+                    <div class="w3-row">
+                      <div class="w3-col l12">
+                    <div class="w3-card-12 w3-hover-shadow card">
+                      <img src="/media/trishul.jpg" alt="" class="post-pic">
+                      </div>
+                    <div class="w3-row">
+                    <div clas="w3-col l12">
+                      <p> adass </p>
+                      </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+          
+            
+
+            <div class="w3-col l4">
+                <div class="w3-card-2 w3-hover-shadow card">
+                <img src="/media/point.jpg" class="post-pic" alt="">
+                </div>
+            </div>
+          
+        </div>
+      </div>
+   
+      
+               
+        
+
+    <div class="w3-container event-grid">
+      <div class="w3-row">
+        <div class="w3-col l12">
+          <h3> One Day Treks </h3>
+        </div>
+
+      <div class="w3-row" >
+            
+            
+            <div class="w3-col l3">
+              <div class="w3-row">
+                <div class="w3-col l12">
+                  <div class="w3-card-12 w3-hover-shadow card">
+                    <img src="/media/473154.jpg" alt="" class="post-pic">
+                  </div>
+              <div class="w3-row image-link">
+                <div clas="w3-col l12">
+                 <a href="/home/list/"> <h4> Sandhan Valley </h4> </a>
+                </div>
+               </div>
+                  </div>
+                    </div>
+                  </div>
+
+           <div class="w3-col l3">
+              <div class="w3-row">
+                <div class="w3-col l12">
+                  <div class="w3-card-12 w3-hover-shadow card">
+                    <img src="/media/VASOTA8.jpg" alt="" class="post-pic">
+                  </div>
+              <div class="w3-row image-link">
+                <div clas="w3-col l12">
+                  <a href=""> <h4> <b> Vasota Jungle Trail </b> </h4> </a>
+                </div>
+               </div>
+                  </div>
+                    </div>
+                  </div>
+           
+            <div class="w3-col l3">
+              <div class="w3-row">
+                <div class="w3-col l12">
+                  <div class="w3-card-12 w3-hover-shadow card">
+                    <img src="/media/trishul.jpg" alt="" class="post-pic">
+                  </div>
+              <div class="w3-row image-link">
+                <div clas="w3-col l12">
+                  <a href=""> <h4> <b> Lohgad </b></h4> </a>
+                </div>
+               </div>
+                  </div>
+                    </div>
+                  </div>
+            
+           <div class="w3-col l3">
+              <div class="w3-row">
+                <div class="w3-col l12">
+                  <div class="w3-card-12 w3-hover-shadow card">
+                    <img src="/media/tikona.jpg" alt="" class="post-pic">
+                  </div>
+              <div class="w3-row image-link">
+                <div clas="w3-col l12">
+                  <a href=""> <h4> <b> Tikona </b> </h4> </a>
+                </div>
+               </div>
+                  </div>
+                    </div>
+                  </div>
+            
+            </div>
+            </div>
+            </div>
+
+            <div class="w3-container event-grid">
+      <div class="w3-row">
+        <div class="w3-col l12">
+          <h3> Night Treks </h3>
+        </div>
+
+      <div class="w3-row" >
+            
+            
+            <div class="w3-col l3">
+              <div class="w3-row">
+                <div class="w3-col l12">
+                  <div class="w3-card-12 w3-hover-shadow card">
+                    <img src="/media/473154.jpg" alt="" class="post-pic">
+                  </div>
+              <div class="w3-row image-link">
+                <div clas="w3-col l12">
+                  <a href=""> <h4> <b> Sandhan Valley </b> </h4> </a>
+                </div>
+               </div>
+                  </div>
+                    </div>
+                  </div>
+
+           <div class="w3-col l3">
+              <div class="w3-row">
+                <div class="w3-col l12">
+                  <div class="w3-card-12 w3-hover-shadow card">
+                    <img src="/media/VASOTA8.jpg" alt="" class="post-pic">
+                  </div>
+              <div class="w3-row image-link">
+                <div clas="w3-col l12">
+                  <a href=""> <h4> <b> Vasota Jungle Trail </b> </h4> </a>
+                </div>
+               </div>
+                  </div>
+                    </div>
+                  </div>
+           
+            <div class="w3-col l3">
+              <div class="w3-row">
+                <div class="w3-col l12">
+                  <div class="w3-card-12 w3-hover-shadow card">
+                    <img src="/media/trishul.jpg" alt="" class="post-pic">
+                  </div>
+              <div class="w3-row image-link">
+                <div clas="w3-col l12">
+                  <a href=""> <h4> <b> Lohgad </b></h4> </a>
+                </div>
+               </div>
+                  </div>
+                    </div>
+                  </div>
+            
+           <div class="w3-col l3">
+              <div class="w3-row">
+                <div class="w3-col l12">
+                  <div class="w3-card-12 w3-hover-shadow card">
+                    <img src="/media/tikona.jpg" alt="" class="post-pic">
+                  </div>
+              <div class="w3-row image-link">
+                <div clas="w3-col l12">
+                  <a href=""> <h4> <b> Tikona </b> </h4> </a>
+                </div>
+               </div>
+                  </div>
+                    </div>
+                  </div>
+            
+            </div>
+            </div>
+            </div>
+
+            <div class="w3-container footer">
+              <div class="w3-row">
+                <div class="w3-col l5" style="height: 100%, width: 100%">
+                  <h3> We Are </h3>
+                    <p> A community for the travellers </p>
+                  <h3> Contact Us </h3>
+                    <p> abc@gmail.com</p>
+                </div>
+
+                <div class="w3-col l6">
+                  <div class="w3-card-12 w3-hover-shadow footer-image">
+                <img src="/media/travelgo.jpg" alt="Norway">
+                </div>
+                </div>
+              </div>
+              </div>    
+       
+    
+    <!--<div class="w3-container">
+        <div class="w3-row">
+            <div class="w3-col l3">
+            <p>Connect With Us</p>
+            </div>
+            
+            <div class="w3-col l3">
+            <form action="#">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" id="sample3">
+    <label class="mdl-textfield__label" for="sample3">Your Name</label>
+  </div>
+</form>
+                <form action="#">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+    <label class="mdl-textfield__label" for="sample4">Your Phone Number...</label>
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div>
+</form>
+            </div>
+        
+        </div>
+        
+    </div> -->
+
+      
+
+
+{% endblock content %}
